@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import logo from './logo.svg'
-import './App.css'
 import MainView from './pages/Main/MainView'
 import Navbar from './components/Navbar/Navbar'
 
