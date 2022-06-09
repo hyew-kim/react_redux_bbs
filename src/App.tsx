@@ -1,17 +1,18 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import MainView from './pages/Main/MainView'
-import Navbar from './components/Navbar/Navbar'
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { Counter } from "./components/Counter";
+import MainView from "./pages/Main/MainView";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <Navbar />
-      <MainView />
+      <header className="App-header">
+        <Counter />
+        <Navbar />
+        <MainView />
+      </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
