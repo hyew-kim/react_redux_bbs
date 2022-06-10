@@ -3,7 +3,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <div className="navbar">
-      <div>HELLO!!!</div>
+      <div>PLCAE FOR LOGO</div>
       <div className="navbar-buttons">
         <NavLink className="navbar-button" to="/" >Home </NavLink>
         <NavLink className="navbar-button" to="/sign-in" >Sign In </NavLink>
