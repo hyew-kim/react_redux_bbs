@@ -5,7 +5,7 @@ import MainView from "./pages/Main/MainView";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
-
+import "./App.css"
 // import SignIn from "./pages/SignIn/SignIn";
 function App() {
   return (
