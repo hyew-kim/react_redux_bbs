@@ -1,7 +1,31 @@
 import "../Sign.css"
 import styled from "styled-components";
 import * as api from "../../api/index"
+import { useState } from "react";
+
+interface User {
+  id: string;
+  email: string;
+  password: string;
+}
+
 export default function SignUp() {
+
+  const [user, setUser] = useState<User>({id:"", email:"", password:""});
+
+  const onChangeLogin = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setUser({...user,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const LoginInput: React.FC<InputFieldProps> = ({name}): JSX.Element=>  (
+    <StyledInputField>
+      <Label for="login-input">{name}</Label>
+      <Input className="login-input" onClick={onChangeLogin} type="text" name="{name}" />
+    </StyledInputField>
+  );
+
   return (
     <LoginContainer> 
       <LoginTitle>Sign Up</LoginTitle>
@@ -24,13 +48,6 @@ const handleSignUp = async (e:Event) => {
 type InputFieldProps = {
   name: string;
 };
-
-const LoginInput: React.FC<InputFieldProps> = ({name}): JSX.Element=>  (
-  <StyledInputField>
-    <Label>{name}</Label>
-    <Input className="login-input" type="text" name="{name}" />
-  </StyledInputField>
-);
 
 const StyledInputField = styled.section`
   display: flex; 
