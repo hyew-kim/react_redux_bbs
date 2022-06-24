@@ -1,17 +1,16 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-import { Counter } from "./components/Counter";
-import MainView from "./pages/Main/MainView";
+import GlobalStyles from "./styles/GlobalStyles";
+import Routing from "./Routing";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
-        <Navbar />
-        <MainView />
-      </header>
-    </div>
+    <>
+      {/* <Counter /> */}
+      <GlobalStyles />
+      <Navbar />
+      <Routing />
+    </>
   );
 }
 
