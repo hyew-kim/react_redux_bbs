@@ -1,20 +1,17 @@
 import "../Sign.css"
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../app/store/user";
-import { RootState } from "../../app/store/store";
-import { useState } from "react";
 import * as api from "../../api/index"
+import { useState } from "react";
+
 interface User {
   id: string;
   email: string;
   password: string;
 }
 
-export default function SignIn() {
-  const dispatch = useDispatch()
+export default function SignUp() {
 
-  const [user, setUser] = useState<User>({id:"", email:"", password:""})
+  const [user, setUser] = useState<User>({id:"", email:"", password:""});
 
   const onChangeLogin = (e:React.ChangeEvent<HTMLInputElement>) => {
     setUser({...user,
@@ -31,37 +28,26 @@ export default function SignIn() {
 
   return (
     <LoginContainer> 
-      <LoginTitle>Sign In</LoginTitle>
+      <LoginTitle>Sign Up</LoginTitle>
       <LoginForm>
-      <LoginInput name="email" />
-      <LoginInput name="password" />
-      <LoginSubmit> 
-        <Button onClick={handleSignIn}>Sign Up</Button>
-      </LoginSubmit>
-        {/* <div className="submit">
-          <button onClick={(e) => {
-                e.preventDefault();
-             dispatch(login({user}))
-          }}>
-            Sign In 
-          </button>
-        </div> */}
+        <LoginInput name="user-name" />
+        <LoginInput name="password" />
+        <LoginInput name="email" />
+        <LoginSubmit> 
+          <Button onClick={handleSignUp}>Sign Up</Button>
+        </LoginSubmit>
       </LoginForm>
     </LoginContainer>
   )
 }
-
-const handleSignIn = async (e:Event) => {
+const handleSignUp = async (e:Event) => {
   e.preventDefault();
   const result = await api.registUser("hyunwk","hyunwk@gmail.com","hyunwk");
   console.log(result);
 };
-
 type InputFieldProps = {
   name: string;
 };
-
-
 
 const StyledInputField = styled.section`
   display: flex; 
